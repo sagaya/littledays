@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sagaya.github.io/littledays/sitemap.xml
