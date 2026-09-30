@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Datatype:wght@400;500&family=Doto:wght@600;800&family=Funnel+Display:wght@500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/ios-today.webp">
+<link rel="preload" as="image" href="assets/iphone-today.webp">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"Little Days - Baby Tracker","operatingSystem":"iOS, iPadOS, watchOS, Android","applicationCategory":"HealthApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"downloadUrl":"https://apps.apple.com/app/id6815898430","installUrl":"https://apps.apple.com/app/id6815898430","image":"https://sagaya.github.io/littledays/icon.png","description":"A free baby tracker for feeds, sleep, diapers, pumping and growth, shared with your family on iPhone and Android with end-to-end encryption. No subscription, no ads, no account."}</script>
 <style>
 :root{
@@ -34,7 +34,6 @@
   --line:#232323;
   --paper:#f1f2f4;
   --paper-ink:#121316;
-  --moon:207,224,245;
   --display:"Funnel Display",ui-sans-serif,system-ui,sans-serif;
   --mono:"Datatype",ui-monospace,"SF Mono",Menlo,monospace;
   --pixel:"Doto",ui-monospace,monospace;
@@ -85,21 +84,22 @@ a{color:inherit}
 .badge{display:inline-flex;align-items:center;gap:10px;height:34px;padding:0 14px 0 8px;border-radius:999px;background:#121212;box-shadow:inset 0 0 0 1px #242424;font-size:13px;color:#bdbdbd;margin-bottom:30px}
 .badge i{display:inline-grid;place-items:center;height:22px;padding:0 9px;border-radius:999px;background:#fff;color:#000;font:800 11px/1 var(--pixel);letter-spacing:.1em;font-style:normal}
 .hero .sub{max-width:34em;margin:26px auto 30px}
-.stage{position:relative;margin-top:56px;height:clamp(520px,64vw,760px)}
-.moon{position:absolute;left:50%;top:-40px;transform:translateX(-50%);width:min(1060px,150vw);aspect-ratio:1;pointer-events:none;
-  -webkit-mask-image:linear-gradient(#000 38%,transparent 76%);mask-image:linear-gradient(#000 38%,transparent 76%)}
-.moon canvas{width:100%;height:100%}
-.stage .phone{position:absolute;left:50%;top:40px;transform:translateX(-50%);width:clamp(260px,27vw,330px)}
-.stage::after{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;background:linear-gradient(transparent,#000 88%);pointer-events:none}
+.stage{position:relative;margin-top:36px;height:clamp(640px,74vw,900px)}
+.night{position:absolute;left:50%;top:-180px;width:1500px;height:1300px;margin-left:-750px;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(56,62,140,.40),rgba(34,36,86,.2) 45%,rgba(20,20,48,.06) 72%,transparent)}
+.hero .wrap{position:relative;z-index:1}
+.mobile{position:absolute;left:50%;top:0;width:clamp(300px,31vw,420px);margin-left:calc(clamp(300px,31vw,420px)/-2);pointer-events:none;transform-origin:50% 0;
+  filter:drop-shadow(0 0 28px rgba(255,214,160,.16))}
+.mobile img{width:100%;height:auto}
+.stage .device{position:absolute;left:50%;top:clamp(210px,21vw,280px);transform:translateX(-50%);width:clamp(270px,26vw,340px);filter:drop-shadow(0 40px 60px rgba(0,0,0,.6))}
+.stage::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(transparent,#000 85%);pointer-events:none}
+@media (prefers-reduced-motion:no-preference){
+  .mobile{animation:sway 9s ease-in-out infinite alternate}
+  @keyframes sway{from{transform:rotate(-1.4deg)}to{transform:rotate(1.4deg)}}
+}
 
-/* Phones */
-.phone{position:relative;container-type:inline-size;border-radius:15.5%/7.2%;background:linear-gradient(160deg,#3a3b3f,#17181a 30%,#0e0e10 70%,#2b2c30);box-shadow:inset 0 0 0 1.5px #4a4b50,inset 0 0 0 3px #0a0a0a,0 40px 80px -20px rgba(0,0,0,.7)}
-.phone .screen{position:relative;margin:3.6cqw;border-radius:12.4%/5.7%;overflow:hidden;background:#000}
-.phone .screen img{width:100%;height:auto}
-.phone .screen::before{content:"";position:absolute;z-index:1;left:34.6%;width:30.8%;top:1.55%;height:4.2%;border-radius:999px;background:#000}
-.android{border-radius:11%/5%;background:linear-gradient(160deg,#2c2d31,#131416 40%,#232428);box-shadow:inset 0 0 0 1.5px #3c3d42,0 40px 80px -20px rgba(0,0,0,.45)}
-.android .screen{margin:2.6cqw;border-radius:8.8%/4%}
-.android .screen::before{left:47.6%;width:4.8%;top:1.2%;height:auto;aspect-ratio:1}
+/* Devices: custom-rendered iPhone frames and Google Pixel device art, with the app screenshots composited in */
+.device{display:block;height:auto}
 
 /* Statement */
 .what{padding:40px 0 120px}
@@ -112,15 +112,15 @@ a{color:inherit}
 .feat .art::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(70% 60% at 50% 100%,var(--glow,transparent),transparent 70%)}
 .feat .copy{padding:22px 6px 0}
 .feat .copy .body{margin-top:10px;max-width:30em}
-.art .phone{position:absolute;width:48%}
+.art .device{position:absolute;filter:drop-shadow(0 30px 40px rgba(20,24,40,.22))}
 .art-sleep{--glow:rgba(122,132,230,.28)}
-.art-sleep .phone{left:26%;top:9%}
+.art-sleep .device{left:50%;top:13%;width:46%;transform:translateX(-50%)}
 .art-family{--glow:rgba(236,120,160,.22)}
-.art-family .phone.ios{left:12%;top:13%;width:42%}
-.art-family .phone.android{left:46%;top:7%;width:42%}
+.art-family .device.ios{left:9%;top:12%;width:42%}
+.art-family .device.android{left:50%;top:10%;width:41.5%}
 .art-sounds{--glow:rgba(214,170,110,.3)}
-.art-sounds .phone.a{left:8%;top:15%;width:42%}
-.art-sounds .phone.b{left:50%;top:7%;width:42%}
+.art-sounds .device.a{left:8%;top:14%;width:42%}
+.art-sounds .device.b{left:50%;top:6%;width:42%}
 .art-import{--glow:rgba(120,180,230,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;padding:32px}
 .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:420px}
 .chips span{padding:8px 13px;border-radius:999px;background:#fff;color:#3b3f46;font:500 13px/1 var(--mono);box-shadow:0 1px 0 rgba(0,0,0,.04),0 0 0 1px rgba(0,0,0,.06)}
@@ -192,15 +192,15 @@ footer a:hover{color:var(--ink)}
 .js .hero-in > :nth-child(2){animation-delay:.08s}
 .js .hero-in > :nth-child(3){animation-delay:.16s}
 .js .hero-in > :nth-child(4){animation-delay:.24s}
-.js .stage .phone{opacity:0;animation:phone 1.2s .3s cubic-bezier(.2,.7,.2,1) forwards}
-.js .moon{opacity:0;animation:fade 1.8s .2s ease forwards}
+.js .stage .device{opacity:0;animation:phone 1.2s .3s cubic-bezier(.2,.7,.2,1) forwards}
+.js .stage .night,.js .mobile img{opacity:0;animation:fade 1.8s .1s ease forwards}
 @keyframes rise{to{opacity:1;transform:none}}
 @keyframes phone{from{opacity:0;transform:translate(-50%,40px)}to{opacity:1;transform:translate(-50%,0)}}
 @keyframes fade{to{opacity:1}}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .js .reveal,.js .hero-in > *,.js .stage .phone,.js .moon{opacity:1;transform:none;animation:none;transition:none}
-  .js .stage .phone{transform:translateX(-50%)}
+  .js .reveal,.js .hero-in > *,.js .stage .device,.js .stage .night,.js .mobile img{opacity:1;transform:none;animation:none;transition:none}
+  .js .stage .device{transform:translateX(-50%)}
 }
 
 /* Responsive */
@@ -215,9 +215,9 @@ footer a:hover{color:var(--ink)}
   .nav .wrap{height:64px}
   .hero{padding-top:36px}
   .badge{font-size:12px}
-  .stage{margin-top:40px;height:600px}
-  .stage .phone{width:250px;top:30px}
-  .moon{top:-10px;width:170vw}
+  .stage{margin-top:28px;height:700px}
+  .mobile{width:280px;margin-left:-140px}
+  .stage .device{width:260px;top:190px}
   .what{padding:10px 0 90px}
   .features,.sec{padding-bottom:100px}
   .feat .art{border-radius:22px}
@@ -272,10 +272,9 @@ footer a:hover{color:var(--ink)}
       </div>
     </div>
     <div class="stage">
-      <div class="moon" aria-hidden="true"><canvas id="moon"></canvas></div>
-      <div class="phone">
-        <div class="screen"><img src="assets/ios-today.webp" width="780" height="1696" alt="The Little Days Today screen on iPhone: last feed 90 mL an hour ago, a sleep timer running, and a note about what one-month-olds are doing."></div>
-      </div>
+      <div class="night" aria-hidden="true"></div>
+      <div class="mobile" aria-hidden="true"><img src="assets/nursery-mobile.webp" width="480" height="392" alt=""></div>
+      <img class="device" src="assets/iphone-today.webp" width="700" height="1436" alt="The Little Days Today screen on iPhone: last feed 90 mL an hour ago, a sleep timer running, and a note about what one-month-olds are doing.">
     </div>
   </section>
 
@@ -290,7 +289,7 @@ footer a:hover{color:var(--ink)}
     <div class="wrap grid">
       <article class="feat reveal">
         <div class="art art-sleep">
-          <div class="phone"><div class="screen"><img src="assets/ios-sleep-timer.webp" width="720" height="1565" loading="lazy" alt="A sleep timer showing 1:04 over a calm nursery illustration, with Pause and End sleep buttons."></div></div>
+          <img class="device" src="assets/iphone-sleep-timer.webp" width="700" height="1436" loading="lazy" alt="A sleep timer showing 1:04 over a calm nursery illustration, with Pause and End sleep buttons.">
         </div>
         <div class="copy">
           <h2 class="h-card">One tap, even at 3am</h2>
@@ -300,8 +299,8 @@ footer a:hover{color:var(--ink)}
 
       <article class="feat reveal">
         <div class="art art-family">
-          <div class="phone ios"><div class="screen"><img src="assets/ios-today.webp" width="780" height="1696" loading="lazy" alt="Little Days on iPhone."></div></div>
-          <div class="phone android"><div class="screen"><img src="assets/android-family.webp" width="720" height="1600" loading="lazy" alt="The Family screen on Android, listing Maya, Jordan and Grandma Rose."></div></div>
+          <img class="device ios" src="assets/iphone-today.webp" width="700" height="1436" loading="lazy" alt="Little Days on iPhone.">
+          <img class="device android" src="assets/pixel-family.webp" width="640" height="1348" loading="lazy" alt="The Family screen on Android, listing Maya, Jordan and Grandma Rose.">
         </div>
         <div class="copy">
           <h2 class="h-card">The whole family, any phone</h2>
@@ -311,8 +310,8 @@ footer a:hover{color:var(--ink)}
 
       <article class="feat reveal">
         <div class="art art-sounds">
-          <div class="phone a"><div class="screen"><img src="assets/ios-sounds.webp" width="720" height="1565" loading="lazy" alt="Sleep sounds: brown noise, steady fan, heartbeat, ambient hush and gentle waters."></div></div>
-          <div class="phone b"><div class="screen"><img src="assets/ios-sound-player.webp" width="720" height="1565" loading="lazy" alt="The brown noise player with a moonlit dune illustration and a stop timer."></div></div>
+          <img class="device a" src="assets/iphone-sounds.webp" width="700" height="1436" loading="lazy" alt="Sleep sounds: brown noise, steady fan, heartbeat, ambient hush and gentle waters.">
+          <img class="device b" src="assets/iphone-sound-player.webp" width="700" height="1436" loading="lazy" alt="The brown noise player with a moonlit dune illustration and a stop timer.">
         </div>
         <div class="copy">
           <h2 class="h-card">Sleep sounds, built in</h2>
@@ -475,32 +474,6 @@ footer a:hover{color:var(--ink)}
 
 <script>
 document.documentElement.classList.add('js');
-(function(){
-  // Halftone moon: dot size follows the light on a sphere, lit from the upper left.
-  var c=document.getElementById('moon'); if(!c) return;
-  var ctx=c.getContext('2d');
-  function draw(){
-    var r=c.getBoundingClientRect(), d=Math.min(window.devicePixelRatio||1,2);
-    if(!r.width) return;
-    c.width=r.width*d; c.height=r.height*d;
-    ctx.setTransform(d,0,0,d,0,0); ctx.clearRect(0,0,r.width,r.height);
-    var W=r.width, R=W*0.47, cx=W/2, cy=W/2, step=Math.max(6,W/104);
-    var L=[-0.55,-0.5,0.67], n=Math.hypot(L[0],L[1],L[2]); L=[L[0]/n,L[1]/n,L[2]/n];
-    var row=0;
-    for(var y=cy-R;y<=cy+R;y+=step*0.866,row++){
-      for(var x=cx-R+(row%2?step/2:0);x<=cx+R;x+=step){
-        var nx=(x-cx)/R, ny=(y-cy)/R, q=nx*nx+ny*ny; if(q>1) continue;
-        var nz=Math.sqrt(1-q), lit=Math.max(0,nx*L[0]+ny*L[1]+nz*L[2]);
-        var s=Math.pow(lit,1.5), rad=step*(0.07+0.3*s), a=0.07+0.42*s;
-        if(s<0.03){ rad=step*0.08; a=0.09*(1-nz*0.6); }
-        ctx.fillStyle='rgba(207,224,245,'+a.toFixed(3)+')';
-        ctx.beginPath(); ctx.arc(x,y,rad,0,6.2832); ctx.fill();
-      }
-    }
-  }
-  draw();
-  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(draw,150)});
-})();
 (function(){
   var els=document.querySelectorAll('.reveal');
   if(!('IntersectionObserver' in window) || location.hash==='#static' || matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(function(e){e.classList.add('in')});return}
