@@ -1,22 +1,101 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Little Days Privacy Policy</title><style>
 :root{--bg:#F6F8FB;--ink:#151A21;--muted:#5A6573;--line:#DCE2E9;--accent:#2C6BB0;color-scheme:light dark}
 @media (prefers-color-scheme:dark){:root{--bg:#0F1318;--ink:#E8ECF1;--muted:#9AA5B2;--line:#2A323C;--accent:#86B6E8}}
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding:40px 20px 80px}
-main{max-width:720px;margin:0 auto} h1{font-size:38px;line-height:1.1;letter-spacing:-.02em;margin:0 0 8px} h2{font-size:22px;margin:32px 0 8px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:40px 20px 80px}
+main{max-width:720px;margin:0 auto} h1{font-size:38px;line-height:1.1;letter-spacing:-.02em;margin:0 0 8px} h2{font-size:22px;margin:32px 0 8px} h3{font-size:18px;margin:22px 0 6px}
 a{color:var(--accent)} .muted{color:var(--muted)} header{display:flex;align-items:center;gap:14px;margin-bottom:24px}
 header img{width:56px;height:56px;border-radius:13px} nav a{margin-right:16px} ul{padding-left:22px} li{margin-bottom:8px}
-</style></head><body><main><header><img src="icon.png" alt=""><div><strong>Little Days</strong><br><span class="muted">Baby tracker for iPhone and iPad</span></div></header><nav><a href="./">Support</a><a href="privacy.html">Privacy Policy</a></nav><h1>Privacy Policy</h1><header class="modal-card-head"><p class="modal-card-title no-select">No Tracking Privacy Policy</p></header><section class="modal-card-body modal-box"><div id="privacy_notrack_content"><strong>Privacy Policy</strong><p>This privacy policy applies to the Little Days app for mobile devices, together with any related services operated by Abdulhafeez Sagaya (collectively, the "Application"). Abdulhafeez Sagaya is hereby referred to as the "Service Provider".</p><br><strong>What information does the Application obtain and how is it used?</strong><p>The Application does not collect, log, or store any personal information when you download and use it. Registration is not required. If the Application is used with an active internet connection, technical protocol data (such as your ephemeral IP address) is transmitted to facilitate network connectivity, but this data is not retained or used for tracking.</p><br><strong>Does the Application collect precise real time location information of the device?</strong><p>This Application does not collect precise information about the location of your mobile device.</p><br><strong>Do third parties see and/or have access to information obtained by the Application?</strong><p>Since the Application does not collect any information, no data is shared with third parties.</p><br><strong>What are my opt-out rights?</strong><div><p>Since the Application does not collect personal information through normal use, uninstalling it simply removes the Application from your device.</p></div><!----><p>If you contact the Service Provider directly or voluntarily provide information by other means, you may request deletion of that information by contacting the Service Provider through the <a href="https://github.com/sagaya/littledays/issues/new?title=Little%20Days%20support">support page</a>.</p><br><strong>Children</strong><p>The Application is not intended for children under 16 years of age, or such higher age as required by applicable law. The Service Provider does not knowingly solicit data from children or market to them. Since the Application does not collect personal information through normal use, children's data is not at risk from use of the Application alone. If you voluntarily provide personal information through other means and are under 16 years of age, your parent or guardian must provide consent on your behalf where permitted by law.</p><br><strong>Security</strong><p>Because the Application does not collect personal data, the risk of personal data exposure is minimal. However, no security system is completely secure. The Service Provider implements reasonable safeguards to protect systems and any data it holds.</p><br><strong>Data Breach Notification</strong><p>Since the Application does not collect personal data through normal use, the risk of a data breach affecting your personal data is minimal. If a breach occurs involving any data you have voluntarily provided, the Service Provider will notify you as required by applicable law.</p><br><!----><strong>Changes</strong><p>The Service Provider may update this Privacy Policy from time to time. The Service Provider will notify you of material changes by posting the updated Privacy Policy with an effective date. Where required by law, the Service Provider will seek your consent to material changes before they take effect.</p><br><p>Previous versions of this Privacy Policy will be maintained and made available upon request by contacting the Service Provider through the <a href="https://github.com/sagaya/littledays/issues/new?title=Little%20Days%20support">support page</a>.</p><br><p>This privacy policy is effective as of 2026-09-25</p><br><strong>Your Consent</strong><p>If you voluntarily provide information to the Service Provider and processing is based on consent, you may withdraw that consent at any time without affecting processing carried out before withdrawal.</p><br><strong>Contact Us</strong><p>If you have any questions regarding privacy while using the Application, or have questions about the practices, please contact the Service Provider through the <a href="https://github.com/sagaya/littledays/issues/new?title=Little%20Days%20privacy">support page</a>.</p><hr><p><span>
-<h2>How Little Days handles your data</h2>
-<p>Everything you log in Little Days (feeds, sleep, diapers, growth, notes, photos and other records) is stored on your device. The Service Provider does not run servers for Little Days and cannot see your records.</p>
+table{border-collapse:collapse;width:100%;font-size:15px;margin:8px 0 4px} th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top} th{font-weight:600}
+.wrap{overflow-x:auto}
+</style></head><body><main>
+<header><img src="icon.png" alt=""><div><strong>Little Days</strong><br><span class="muted">Baby tracker for iPhone, iPad, Apple Watch and Android</span></div></header>
+<nav><a href="./">Support</a><a href="privacy.html">Privacy Policy</a></nav>
+<h1>Privacy Policy</h1>
+<p class="muted">Effective date: 2026-09-29 · Applies to Little Days for iOS, iPadOS, watchOS and Android</p>
+
+<p>This privacy policy applies to the Little Days app for mobile devices and the Little Days sync relay that family sharing on Android uses (together, the "Application"). They are operated by Abdulhafeez Sagaya, referred to here as the "Service Provider".</p>
+
+<h2>In short</h2>
 <ul>
-<li><strong>iCloud sync and family sharing.</strong> If you are signed in to iCloud, your records sync through your own private iCloud database, operated by Apple. When you invite family members or caregivers, the records you share are visible to the people you invite. You can stop sharing at any time in the app.</li>
-<li><strong>Apple Health.</strong> Only if you allow it, the app reads and saves caregiver weight records in Apple Health. This data stays in Apple Health on your device and is not sent to the Service Provider.</li>
-<li><strong>Microphone and speech recognition.</strong> Only when you tap Start recording, your voice is transcribed on your device so you can review a care note before saving it. Recordings are not uploaded to the Service Provider.</li>
-<li><strong>Camera and photos.</strong> Photos you take for supplies are stored with your records on your device and, if enabled, in your iCloud.</li>
-<li><strong>Weather.</strong> To show local weather on the Home screen, the app looks up the main city of your device's time zone and requests the weather for it from Apple WeatherKit. It does not use GPS or your precise location. You can turn weather off in Settings.</li>
-<li><strong>Notifications.</strong> Reminders are scheduled on your device. Timer updates shown on your other devices are delivered through Apple's push notification service.</li>
-<li><strong>No analytics, advertising or tracking.</strong> Little Days contains no analytics, advertising or tracking software and never sells or shares your data.</li>
-<li><strong>Deleting your data.</strong> You can delete individual records in the app, archive or export them, or delete the app to remove data from your device. Data synced to iCloud can be removed in Settings › Apple Account › iCloud › Manage Storage.</li>
+<li>Everything you log (feeds, sleep, diapers, growth, notes, photos and other records) is stored on your device. There are no Little Days accounts.</li>
+<li>If you share with family, your records are end-to-end encrypted before they leave your device. The Service Provider cannot read them.</li>
+<li>To deliver notifications and show the weather, the app uses a few services that see limited technical data. Each one is listed below.</li>
+<li>Little Days contains no analytics, advertising or tracking software. It never sells your data or uses it for advertising.</li>
 </ul>
-<p>Little Days is a logging tool for parents and caregivers. It does not provide medical advice.</p>
+
+<h2>What stays on your device</h2>
+<p>Baby profiles, care records, notes, photos, reminders, supplies, plans, your caregiver name and app settings are stored in the app's private storage on your device. Reminders are scheduled on your device. Voice notes for "Speak to log" are transcribed on your device where it supports this (see Microphone below).</p>
+
+<h2>Family sharing</h2>
+<h3>iPhone and iPad with iCloud</h3>
+<p>If you're signed in to iCloud, your records sync through your own private iCloud database, operated by Apple. When you invite family members or caregivers through iCloud, the records you share are visible to the people you invite. You can stop sharing at any time in the app.</p>
+<h3>Android, and families that mix Android and iPhone: the Little Days relay</h3>
+<p>Android devices, and iPhones in a family that includes Android, share through the Little Days relay, a small service run by the Service Provider on Cloudflare. It works like this:</p>
+<ul>
+<li><strong>End-to-end encryption.</strong> Each family has a secret key that exists only on the family's devices. Records and photos are encrypted with AES-256-GCM on your device before upload. The relay stores only this encrypted data, so neither the Service Provider nor Cloudflare can read your records, photos, baby names or notes.</li>
+<li><strong>What the relay can see.</strong> Random identifiers for the family, records and devices; the size of each encrypted item; when it was uploaded; and the IP address of connecting devices (seen by Cloudflare as part of normal network traffic).</li>
+<li><strong>Invites.</strong> An invite code lets someone join your family. The encrypted invite is stored on the relay for 24 hours and then deleted.</li>
+<li><strong>Deleted records.</strong> When you delete a record, its encrypted copy on the relay is replaced with an encrypted deletion marker so that the other devices remove it too.</li>
+</ul>
+
+<h2>Notifications (push)</h2>
+<p>To tell the other devices in your family that something new was logged, or that a timer was started or stopped, the Application uses Apple Push Notification service (on iPhone and iPad) and Firebase Cloud Messaging by Google (on Android).</p>
+<ul>
+<li>Your device gets a push token from Apple or Google. On Android, the Firebase Cloud Messaging software creates this token and a Firebase installation ID when the app first starts. Only Cloud Messaging is used, with Google Analytics for Firebase turned off.</li>
+<li>While your device is in a family, the relay stores its push token, a random device ID and the platform so it can wake your device. It deletes this registration when you leave the family, when Apple or Google reports the token as invalid, or after 60 days without the app checking in.</li>
+<li>Sync notifications carry no record contents.</li>
+<li><strong>Timer notifications</strong> carry what the lock screen needs to show a running timer: the kind of timer and its label (for example "Sleep" or "Breastfeeding"), start, pause and end times, status, and for kick counts the count and goal. They never include your baby's name or record contents. The relay passes them straight on to Apple or Google and doesn't store them.</li>
+</ul>
+
+<h2>Weather</h2>
+<p>To draw local weather and sunrise on the Home screen, the app looks up the approximate location of your internet connection (usually your city), using your IP address, from <a href="https://ipwho.is/">ipwho.is</a> (with <a href="https://ipapi.co/">ipapi.co</a> as a backup). The resulting place is kept only on your device, for a few hours. The app then asks for the weather at that place from Apple WeatherKit (on iPhone and iPad) or <a href="https://open-meteo.com/">Open-Meteo</a> (on Android). If the lookup fails, the app uses the main city of your time zone instead. The app never uses GPS or asks for location permission. You can turn weather off in Settings (on Android: Settings › Home widgets › Local weather in the sky). These services receive your IP address and the approximate coordinates as part of the request and handle them under their own privacy policies.</p>
+
+<h2>Microphone and speech</h2>
+<p>Only when you tap to record in "Speak to log" does the app listen, and it turns what you say into a draft note that you check before saving. On iPhone, and on Android devices with on-device speech recognition, this happens on your device. On Android devices without on-device recognition, the app asks your device's speech service to work offline where possible. That service is provided by your device maker or Google under its own terms. The app never uploads recordings to the Service Provider and doesn't keep audio.</p>
+
+<h2>Camera and photos</h2>
+<p>You can add photos to records and supplies using the camera or the system photo picker. The app doesn't need access to your photo library. Photos are stored with your records on your device and, if you share, are end-to-end encrypted like other records (on iPhone they may also be stored in your iCloud).</p>
+
+<h2>Apple Health (iPhone only)</h2>
+<p>Only if you allow it, the iPhone app reads and saves caregiver weight records in Apple Health. This data stays in Apple Health on your device and is not sent to the Service Provider. The Android app doesn't use Health Connect.</p>
+
+<h2>Backups, import and export</h2>
+<ul>
+<li>Your device's own backup (iCloud Backup or Android backup to your Google account) may include the app's data, following your device settings. The Android app leaves the family encryption key and push identifiers out of backups.</li>
+<li>Imports from other baby tracking apps, and PDF, CSV or backup exports, are processed on your device. Exported files go only where you choose to send them.</li>
+</ul>
+
+<h2>Services at a glance</h2>
+<div class="wrap"><table>
+<tr><th>Service</th><th>Used for</th><th>What it receives</th></tr>
+<tr><td>Apple iCloud (iOS)</td><td>Sync and sharing through your iCloud</td><td>Your records, in your iCloud account</td></tr>
+<tr><td>Little Days relay on Cloudflare</td><td>Family sharing with Android</td><td>Encrypted records and photos, random IDs, sizes, times, push tokens, IP address</td></tr>
+<tr><td>Apple Push Notification service / Google Firebase Cloud Messaging</td><td>Notifications between family devices</td><td>Push token, device identifiers, timer notifications described above</td></tr>
+<tr><td>ipwho.is, ipapi.co</td><td>Approximate city for weather</td><td>IP address</td></tr>
+<tr><td>Apple WeatherKit (iOS) / Open-Meteo (Android)</td><td>Weather forecast</td><td>Approximate coordinates of your city, IP address</td></tr>
+</table></div>
+<p>The Service Provider doesn't use any analytics, advertising, attribution or crash-reporting services, and doesn't sell or rent your data.</p>
+
+<h2>Children</h2>
+<p>Little Days is made for parents and caregivers to log care for their children. It is not directed at children, and children are not meant to use it. The Service Provider does not knowingly collect personal information from children. Information about a baby that a parent enters stays on the parent's devices and, if shared, is end-to-end encrypted as described above.</p>
+
+<h2>Deleting your data</h2>
+<ul>
+<li>Delete individual records, babies or photos in the app, or delete the app to remove all of its data from your device.</li>
+<li>Deleting a shared record removes it from the other devices in your family. Leaving a family (Android: Family › Sync &amp; sharing › Leave family) stops sync on that device and removes its push registration from the relay.</li>
+<li>To have all of a family's encrypted data removed from the relay, contact the Service Provider (below) and it will be deleted.</li>
+<li>Data synced to iCloud can be removed on iPhone in Settings › [your name] › iCloud › Manage Storage.</li>
+</ul>
+
+<h2>Security</h2>
+<p>All connections use encryption in transit (HTTPS/TLS), and records and photos shared through the relay are end-to-end encrypted. On Android, the family key is stored in encrypted storage protected by the device's keystore. No system is completely secure, but the Service Provider takes reasonable measures to protect the relay. If a breach affects data you've provided, the Service Provider will notify you as required by law.</p>
+
+<h2>Medical disclaimer</h2>
+<p>Little Days is a logging tool for parents and caregivers. It doesn't provide medical advice. If anything seems unusual, contact your doctor or care team.</p>
+
+<h2>Changes</h2>
+<p>The Service Provider may update this Privacy Policy from time to time and will post the updated policy here with a new effective date. Where the law requires it, the Service Provider will ask for your consent before material changes take effect. Earlier versions are available on request.</p>
+
+<h2>Contact</h2>
+<p>If you have questions about privacy, or want data deleted, contact the Service Provider through the <a href="https://github.com/sagaya/littledays/issues/new?title=Little%20Days%20privacy">support page</a>. Messages on the support page are public, so please don't include your baby's records or personal details there.</p>
 </main></body></html>
