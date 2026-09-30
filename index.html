@@ -80,22 +80,28 @@ a{color:inherit}
 .nav-links a:not(.btn):hover{color:var(--ink)}
 
 /* Hero */
-.hero{position:relative;padding:56px 0 0;overflow:hidden}
-.badge{display:inline-flex;align-items:center;gap:10px;height:34px;padding:0 14px 0 8px;border-radius:999px;background:#121212;box-shadow:inset 0 0 0 1px #242424;font-size:13px;color:#bdbdbd;margin-bottom:30px}
-.badge i{display:inline-grid;place-items:center;height:22px;padding:0 9px;border-radius:999px;background:#fff;color:#000;font:800 11px/1 var(--pixel);letter-spacing:.1em;font-style:normal}
-.hero .sub{max-width:34em;margin:26px auto 30px}
+.hero{position:relative;padding:clamp(56px,7vw,104px) 0 0;overflow:hidden;touch-action:pan-y}
+.hero .sub{max-width:34em;margin:28px auto 34px}
 .stage{position:relative;margin-top:36px;height:clamp(640px,74vw,900px)}
 .night{position:absolute;left:50%;top:-180px;width:1500px;height:1300px;margin-left:-750px;pointer-events:none;
   background:radial-gradient(closest-side,rgba(56,62,140,.40),rgba(34,36,86,.2) 45%,rgba(20,20,48,.06) 72%,transparent)}
 .hero .wrap{position:relative;z-index:1}
-.mobile{position:absolute;left:50%;top:0;width:clamp(300px,31vw,420px);margin-left:calc(clamp(300px,31vw,420px)/-2);pointer-events:none;transform-origin:50% 0;
-  filter:drop-shadow(0 0 28px rgba(255,214,160,.16))}
-.mobile img{width:100%;height:auto}
-.stage .device{position:absolute;left:50%;top:clamp(210px,21vw,280px);transform:translateX(-50%);width:clamp(270px,26vw,340px);filter:drop-shadow(0 40px 60px rgba(0,0,0,.6))}
+.mobile{position:absolute;left:50%;top:0;width:clamp(300px,31vw,420px);margin-left:calc(clamp(300px,31vw,420px)/-2);aspect-ratio:480/392;pointer-events:none;will-change:transform}
+.m-ring,.m-chain{position:absolute;inset:0;will-change:transform}
+.m-ring{transform-origin:50% 0}
+.mobile img{position:absolute;inset:0;width:100%;height:100%}
+.m-glow{position:absolute;left:35%;top:31.4%;width:28%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(255,220,170,.28),rgba(255,210,150,.08) 60%,transparent);opacity:.7}
+.stars{position:absolute;inset:-60px 0 0;pointer-events:none;will-change:transform}
+.star{position:absolute;width:var(--s);height:var(--s);opacity:.35;
+  background:radial-gradient(circle,rgba(255,244,225,.95) 0 12%,transparent 26%),linear-gradient(90deg,transparent 0 46%,rgba(255,240,220,.55) 50%,transparent 54% 100%),linear-gradient(transparent 0 46%,rgba(255,240,220,.55) 50%,transparent 54% 100%)}
+.stage .device{position:absolute;left:50%;top:clamp(210px,21vw,280px);transform:translateX(-50%);width:clamp(270px,26vw,340px);filter:drop-shadow(0 40px 60px rgba(0,0,0,.6));will-change:transform}
+.night{will-change:transform}
 .stage::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(transparent,#000 85%);pointer-events:none}
 @media (prefers-reduced-motion:no-preference){
-  .mobile{animation:sway 9s ease-in-out infinite alternate}
-  @keyframes sway{from{transform:rotate(-1.4deg)}to{transform:rotate(1.4deg)}}
+  .star{animation:twinkle var(--d) ease-in-out var(--delay) infinite alternate}
+  .m-glow{animation:glow 7s ease-in-out infinite alternate}
+  @keyframes twinkle{from{opacity:.12;transform:scale(.7)}to{opacity:.95;transform:scale(1)}}
+  @keyframes glow{from{opacity:.45}to{opacity:1}}
 }
 
 /* Devices: custom-rendered iPhone frames and Google Pixel device art, with the app screenshots composited in */
@@ -108,7 +114,8 @@ a{color:inherit}
 /* Feature cards */
 .features{padding-bottom:140px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px 24px}
-.feat .art{position:relative;aspect-ratio:1/.92;border-radius:28px;background:var(--paper);overflow:hidden;isolation:isolate}
+.feat .art{position:relative;aspect-ratio:1/.92;border-radius:28px;background:var(--paper);overflow:hidden;isolation:isolate;transform:perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--lift,0px))}
+.art .device,.art .flow,.art .chips{translate:var(--dx,0px) var(--dy,0px)}
 .feat .art::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(70% 60% at 50% 100%,var(--glow,transparent),transparent 70%)}
 .feat .copy{padding:22px 6px 0}
 .feat .copy .body{margin-top:10px;max-width:30em}
@@ -193,13 +200,13 @@ footer a:hover{color:var(--ink)}
 .js .hero-in > :nth-child(3){animation-delay:.16s}
 .js .hero-in > :nth-child(4){animation-delay:.24s}
 .js .stage .device{opacity:0;animation:phone 1.2s .3s cubic-bezier(.2,.7,.2,1) forwards}
-.js .stage .night,.js .mobile img{opacity:0;animation:fade 1.8s .1s ease forwards}
+.js .stage .night,.js .mobile,.js .stars{opacity:0;animation:fade 1.8s .1s ease forwards}
 @keyframes rise{to{opacity:1;transform:none}}
 @keyframes phone{from{opacity:0;transform:translate(-50%,40px)}to{opacity:1;transform:translate(-50%,0)}}
 @keyframes fade{to{opacity:1}}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .js .reveal,.js .hero-in > *,.js .stage .device,.js .stage .night,.js .mobile img{opacity:1;transform:none;animation:none;transition:none}
+  .js .reveal,.js .hero-in > *,.js .stage .device,.js .stage .night,.js .mobile,.js .stars{opacity:1;transform:none;animation:none;transition:none}
   .js .stage .device{transform:translateX(-50%)}
 }
 
@@ -213,8 +220,7 @@ footer a:hover{color:var(--ink)}
 @media (max-width:560px){
   body{font-size:15px}
   .nav .wrap{height:64px}
-  .hero{padding-top:36px}
-  .badge{font-size:12px}
+  .hero{padding-top:44px}
   .stage{margin-top:28px;height:700px}
   .mobile{width:280px;margin-left:-140px}
   .stage .device{width:260px;top:190px}
@@ -257,7 +263,6 @@ footer a:hover{color:var(--ink)}
 <main id="main">
   <section class="hero" aria-labelledby="hero-title">
     <div class="wrap center hero-in">
-      <p class="badge"><i>FREE</i>No ads · No subscription · No account</p>
       <h1 class="h-hero" id="hero-title">Every little day,<br>logged together.</h1>
       <p class="body sub">Feeds, sleep and diapers in one tap, day or 3am. Everyone who helps sees the same day, on <b>iPhone</b>, <b>iPad</b>, <b>Apple&nbsp;Watch</b> and soon <b>Android</b>.</p>
       <div class="btns">
@@ -273,7 +278,17 @@ footer a:hover{color:var(--ink)}
     </div>
     <div class="stage">
       <div class="night" aria-hidden="true"></div>
-      <div class="mobile" aria-hidden="true"><img src="assets/nursery-mobile.webp" width="480" height="392" alt=""></div>
+      <div class="stars" aria-hidden="true"></div>
+      <div class="mobile" aria-hidden="true">
+        <div class="m-ring">
+          <img src="assets/mobile-ring.webp" width="480" height="392" alt="">
+          <div class="m-chain" style="transform-origin:27.92% 28.06%"><img src="assets/mobile-c1.webp" width="480" height="392" alt=""></div>
+          <div class="m-chain" style="transform-origin:38.12% 28.06%"><img src="assets/mobile-c2.webp" width="480" height="392" alt=""></div>
+          <div class="m-chain" style="transform-origin:49.38% 28.06%"><div class="m-glow"></div><img src="assets/mobile-c3.webp" width="480" height="392" alt=""></div>
+          <div class="m-chain" style="transform-origin:61.04% 28.06%"><img src="assets/mobile-c4.webp" width="480" height="392" alt=""></div>
+          <div class="m-chain" style="transform-origin:70.83% 28.06%"><img src="assets/mobile-c5.webp" width="480" height="392" alt=""></div>
+        </div>
+      </div>
       <img class="device" src="assets/iphone-today.webp" width="700" height="1436" alt="The Little Days Today screen on iPhone: last feed 90 mL an hour ago, a sleep timer running, and a note about what one-month-olds are doing.">
     </div>
   </section>
@@ -475,10 +490,137 @@ footer a:hover{color:var(--ink)}
 <script>
 document.documentElement.classList.add('js');
 (function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Scroll-in reveals */
   var els=document.querySelectorAll('.reveal');
-  if(!('IntersectionObserver' in window) || location.hash==='#static' || matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(function(e){e.classList.add('in')});return}
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
-  els.forEach(function(e){io.observe(e)});
+  if(!('IntersectionObserver' in window) || location.hash==='#static' || reduce){els.forEach(function(e){e.classList.add('in')})}
+  else{
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e)});
+  }
+
+  /* A few twinkling stars, scattered away from the phone */
+  var sky=document.querySelector('.stars');
+  if(sky){
+    var seed=7; function rnd(){seed=(seed*16807)%2147483647;return (seed-1)/2147483646}
+    for(var n=0;n<18;n++){
+      var st=document.createElement('span'); st.className='star';
+      var side=n%2?1:-1, x=50+side*(14+rnd()*34), y=rnd()*62;
+      st.style.cssText='left:'+x.toFixed(1)+'%;top:'+y.toFixed(1)+'%;--s:'+(6+rnd()*10).toFixed(1)+'px;--d:'+(2.4+rnd()*3.6).toFixed(2)+'s;--delay:-'+(rnd()*5).toFixed(2)+'s';
+      sky.appendChild(st);
+    }
+  }
+  if(reduce) return;
+
+  /* ---------- Crib mobile: damped pendulums driven by a breeze from the pointer ---------- */
+  var hero=document.querySelector('.hero'), stage=document.querySelector('.stage');
+  var mobile=document.querySelector('.mobile'), ring=document.querySelector('.m-ring');
+  var chains=[].slice.call(document.querySelectorAll('.m-chain'));
+  var night=document.querySelector('.night'), phone=document.querySelector('.stage .device');
+  var R={a:0,v:0}, C=chains.map(function(el,i){
+    return {el:el,a:0,v:0,s:0,sv:0,w:(2*Math.PI)/(2.3+i*0.23),z:0.09+i*0.01,spin:0.21+i*0.037,ph:i*1.7};
+  });
+  var ringW=(2*Math.PI)/3.3, ringZ=0.11;
+  var P={x:0,y:0,tx:0,ty:0,vx:0,vy:0};           // smoothed pointer for parallax
+  var last=null, lastPt=null, running=false, raf=0, t0=performance.now();
+
+  function breeze(e){
+    var now=performance.now(), r=stage.getBoundingClientRect();
+    var nx=(e.clientX/innerWidth)*2-1, ny=((e.clientY-r.top)/Math.max(r.height,1))*2-1;
+    P.tx=Math.max(-1,Math.min(1,nx)); P.ty=Math.max(-1,Math.min(1,ny));
+    if(lastPt){
+      var dt=Math.max(8,now-lastPt.t)/1000, vx=(e.clientX-lastPt.x)/dt;
+      // closer to the mobile = stronger push, like moving air near it
+      var mr=mobile.getBoundingClientRect(), cx=mr.left+mr.width/2, cy=mr.top+mr.height*0.5;
+      var d=Math.hypot(e.clientX-cx,(e.clientY-cy)*1.4), near=Math.exp(-d/520);
+      var push=Math.max(-2600,Math.min(2600,vx))*near;
+      R.v+=push*0.0016;
+      C.forEach(function(c,i){c.v+=push*(0.0018+0.0006*((i*7)%3));c.sv+=push*0.005*(i%2?1:-1)});
+    }
+    lastPt={x:e.clientX,y:e.clientY,t:now};
+  }
+  hero.addEventListener('pointermove',breeze,{passive:true});
+  hero.addEventListener('pointerleave',function(){lastPt=null;P.tx=0;P.ty=0},{passive:true});
+  hero.addEventListener('pointerup',function(){lastPt=null},{passive:true});
+
+  // Gentle tilt on devices that allow it without a permission prompt (not iOS Safari)
+  if(window.DeviceOrientationEvent && typeof DeviceOrientationEvent.requestPermission!=='function'){
+    addEventListener('deviceorientation',function(e){
+      if(e.gamma==null) return;
+      P.tx=Math.max(-1,Math.min(1,e.gamma/30)); P.ty=Math.max(-1,Math.min(1,((e.beta||45)-45)/30));
+    },{passive:true});
+  }
+
+  function step(now){
+    raf=0; if(!running) return;
+    var dt=Math.min(1/30,(now-(last||now))/1000)||1/60; last=now;
+    var t=(now-t0)/1000;
+    // idle air: slow, non-repeating drift of the ring's rest angle
+    var idle=1.6*Math.sin(t*0.41)+0.9*Math.sin(t*0.23+1.3)+0.25*P.x*4;
+    var acc=-ringW*ringW*(R.a-idle)-2*ringZ*ringW*R.v;
+    R.v+=acc*dt; R.a+=R.v*dt;
+    if(Math.abs(R.a)>7){R.a=7*Math.sign(R.a);R.v*=-0.3}
+    ring.style.transform='rotate('+R.a.toFixed(3)+'deg)';
+    C.forEach(function(c,i){
+      // each ornament lags the ring (inertia), then settles on its own slower rhythm
+      var own=0.8*Math.sin(t*0.53+c.ph);
+      var ca=-c.w*c.w*(c.a-own)-2*c.z*c.w*c.v-acc*0.55;
+      c.v+=ca*dt; c.a+=c.v*dt;
+      if(Math.abs(c.a)>9){c.a=9*Math.sign(c.a);c.v*=-0.3}
+      // slow turn on the string; a breeze adds spin that decays
+      c.sv+=(-1.2*c.s-0.9*c.sv)*dt; c.s+=c.sv*dt;
+      var turn=Math.max(-34,Math.min(34,12*Math.sin(t*c.spin+c.ph)+c.s));
+      c.el.style.transform='rotate('+c.a.toFixed(3)+'deg) perspective(700px) rotateY('+turn.toFixed(2)+'deg)';
+    });
+    // parallax: critically damped follow of the pointer
+    var k=1-Math.exp(-dt*3.2); P.x+=(P.tx-P.x)*k; P.y+=(P.ty-P.y)*k;
+    night.style.translate=(-6*P.x).toFixed(2)+'px '+(-4*P.y).toFixed(2)+'px';
+    sky.style.translate=(-12*P.x).toFixed(2)+'px '+(-7*P.y).toFixed(2)+'px';
+    mobile.style.translate=(-18*P.x).toFixed(2)+'px '+(-8*P.y).toFixed(2)+'px';
+    phone.style.translate=(-28*P.x).toFixed(2)+'px '+(-10*P.y).toFixed(2)+'px';
+    raf=requestAnimationFrame(step);
+  }
+  function setRun(on){
+    on=on&&!document.hidden;
+    if(on===running) return; running=on; last=null;
+    if(on&&!raf) raf=requestAnimationFrame(step);
+  }
+  var heroVisible=true;
+  new IntersectionObserver(function(es){heroVisible=es[0].isIntersecting;setRun(heroVisible)}).observe(hero);
+  document.addEventListener('visibilitychange',function(){setRun(heroVisible)});
+  setRun(true);
+
+  /* ---------- Feature cards: spring tilt toward the pointer ---------- */
+  if(!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  var cards=[].slice.call(document.querySelectorAll('.feat .art')).map(function(el){
+    return {el:el,rx:0,ry:0,l:0,vx:0,vy:0,vl:0,trx:0,try_:0,tl:0};
+  });
+  var cardRaf=0, cardLast=0;
+  function cardStep(now){
+    var dt=Math.min(1/30,(now-(cardLast||now))/1000)||1/60; cardLast=now;
+    var w=2*Math.PI/0.35, busy=false;       // response ~0.35s, critically damped
+    cards.forEach(function(c){
+      [['rx','vx','trx'],['ry','vy','try_'],['l','vl','tl']].forEach(function(k){
+        var a=-w*w*(c[k[0]]-c[k[2]])-2*w*c[k[1]]; c[k[1]]+=a*dt; c[k[0]]+=c[k[1]]*dt;
+        if(Math.abs(c[k[0]]-c[k[2]])>0.01||Math.abs(c[k[1]])>0.01) busy=true;
+      });
+      c.el.style.setProperty('--rx',c.rx.toFixed(3)+'deg');
+      c.el.style.setProperty('--ry',c.ry.toFixed(3)+'deg');
+      c.el.style.setProperty('--lift',(-c.l*6).toFixed(2)+'px');
+      c.el.style.setProperty('--dx',(c.ry*2.2).toFixed(2)+'px');
+      c.el.style.setProperty('--dy',(-c.rx*2.2).toFixed(2)+'px');
+    });
+    cardRaf=busy?requestAnimationFrame(cardStep):0; if(!busy) cardLast=0;
+  }
+  function kick(){if(!cardRaf) cardRaf=requestAnimationFrame(cardStep)}
+  cards.forEach(function(c){
+    c.el.addEventListener('pointermove',function(e){
+      var r=c.el.getBoundingClientRect(), x=(e.clientX-r.left)/r.width-0.5, y=(e.clientY-r.top)/r.height-0.5;
+      c.try_=x*8; c.trx=-y*8; c.tl=1; kick();          // at most about 4 degrees each way
+    },{passive:true});
+    c.el.addEventListener('pointerleave',function(){c.trx=0;c.try_=0;c.tl=0;kick()},{passive:true});
+  });
 })();
 </script>
 </body>
